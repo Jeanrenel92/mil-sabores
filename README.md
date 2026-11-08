@@ -11,7 +11,7 @@ El proyecto se divide desde el inicio en dos areas:
 Ambas areas comparten componentes comunes, servicios, rutas generales y estilos globales.
 Vitest se utiliza para las pruebas automatizadas.
 
-Este documento temporal debe actualizarse cuando cambien las tecnologias, las responsabilidades
+Este documento debe actualizarse cuando cambien las tecnologias, las responsabilidades
 o las convenciones acordadas por el equipo.
 
 ## Tecnologias
@@ -21,7 +21,7 @@ o las convenciones acordadas por el equipo.
 - Vite
 - Vitest
 - ESLint
-- Bootstrap 5, opcional y no instalado por defecto
+- CSS propio (sin Bootstrap)
 
 ## Instalacion
 
@@ -45,59 +45,51 @@ Las versiones y dependencias quedan registradas en `package.json` y `package-loc
 | `npm test -- --run` | Ejecuta todas las pruebas una vez. |
 | `npm run preview` | Previsualiza la compilacion de produccion. |
 
-## Bootstrap opcional
+## Estilos: sin Bootstrap
 
-Bootstrap no forma parte de la configuracion predeterminada. Si el equipo acuerda usarlo:
+El proyecto no usa Bootstrap. Todo el diseno sale de CSS propio:
 
-```bash
-npm install bootstrap
-```
-
-Importarlo una sola vez en `src/main.tsx`:
-
-```tsx
-import "bootstrap/dist/css/bootstrap.min.css";
-```
-
-Se recomienda evitar clases utilitarias repetidas en JSX y mantener los estilos propios en CSS.
+- `src/styles/global.css` define variables, reseteo, tipografias y clases base.
+- Cada componente tiene su propio archivo CSS dentro de `src/styles`.
+- Los componentes solo consumen las variables globales (colores, fuentes, espacios).
 
 ## Organizacion de carpetas
 
-Esta actividad corresponde a la segunda evaluacion. Por ello, algunas carpetas creadas pueden
-quedar sin uso porque forman una estructura base preparada para futuras evaluaciones.
-Las carpetas actuales deben utilizarse solo cuando el equipo necesite organizar codigo real.
+Los componentes se organizan con Atomic Design. El codigo (`.tsx`) vive en `src/components`
+y los estilos (`.css`) viven en `src/styles`, replicando la misma estructura.
 
-Atomic Design es opcional. Puede usarse como alternativa para organizar los componentes,
-pero no es obligatorio crear carpetas de atomos, moleculas u organismos.
+Algunas carpetas pueden quedar sin uso porque forman una estructura base preparada
+para futuras evaluaciones. Deben utilizarse solo cuando el equipo necesite organizar codigo real.
 
 ```text
 src/
   components/
-    atoms/       Opcion opcional para elementos basicos: botones, inputs e iconos.
-    molecules/   Opcion opcional para combinar varios atomos.
-    organisms/   Opcion opcional para secciones completas reutilizables.
-    Button/      Los componentes tambien pueden colocarse directamente sin clasificar.
+    atoms/         Elementos basicos: Button, Input, Tag, Title.
+    molecules/     Combinacion de atomos: FormField, SectionHeader, BlogCard.
+    organisms/     Secciones completas reutilizables: Header, Footer, ContactForm.
   pages/
-    client/      Paginas publicas y funcionalidades de clientes.
-    admin/       Paginas protegidas y funcionalidades administrativas.
-  templates/     Distribucion general reutilizada por paginas.
-  routes/        Definicion de rutas y proteccion de accesos.
-  services/      Comunicacion con APIs y servicios externos.
-  context/       Estado compartido mediante Context API.
-  hooks/         Hooks personalizados.
-  types/         Tipos e interfaces compartidos.
-  utils/         Funciones auxiliares.
+    client/        Paginas publicas y funcionalidades de clientes.
+    admin/         Paginas protegidas y funcionalidades administrativas.
+  templates/       Distribucion general reutilizada por paginas.
+  routes/          Definicion de rutas y proteccion de accesos.
+  services/        Comunicacion con APIs y servicios externos.
+  context/         Estado compartido mediante Context API.
+  hooks/           Hooks personalizados.
+  types/           Tipos e interfaces compartidos.
+  utils/           Funciones auxiliares.
   styles/
-    global.css   Variables, reseteos, tipografias y estilos comunes.
-    components/  Estilos de componentes compartidos.
-    pages/       Estilos de paginas compartidas.
-    client/      Estilos exclusivos del area cliente.
-    admin/       Estilos exclusivos del area administrativa.
-  App.tsx        Componente raiz.
-  main.tsx       Punto de entrada.
+    global.css     Variables, reseteos, tipografias y clases base.
+    components/
+      atoms/       CSS de los atomos.
+      molecules/   CSS de las moleculas.
+      organisms/   CSS de los organismos.
+    client/        CSS de paginas del area cliente.
+    admin/         CSS de paginas del area administrativa.
+  App.tsx          Componente raiz.
+  main.tsx         Punto de entrada.
 
-tests/           Pruebas unitarias e integracion.
-public/          Recursos estaticos publicos.
+tests/             Pruebas unitarias e integracion.
+public/            Recursos estaticos publicos.
 ```
 
 ### Responsabilidades de cliente y administrador
@@ -105,70 +97,71 @@ public/          Recursos estaticos publicos.
 - Las paginas publicas se crean en `src/pages/client`.
 - Las paginas administrativas se crean en `src/pages/admin`.
 - Los componentes compartidos se ubican en `src/components`.
-- Cliente y administrador comparten `src/styles/global.css`.
-- Los estilos exclusivos de cada area se ubican en `src/styles/client` y `src/styles/admin`.
+- Cliente y administrador comparten `src/styles/global.css` y los componentes.
+- El CSS de cada pagina se ubica en `src/styles/client` o `src/styles/admin` segun su area.
 - Las rutas administrativas deben validar los permisos correspondientes.
 - Los servicios comunes deben compartirse y no duplicarse entre ambas areas.
-- El CSS global es suficiente cuando cubre los estilos compartidos por todas las paginas.
-- No es obligatorio crear un archivo CSS por pagina si esta reutiliza correctamente el estilo global.
-- Los archivos exclusivos para cliente y administrador son opcionales. Solo deben crearse cuando sus
-  disenos necesitan reglas distintas y no pueden resolverse mediante clases globales.
 
 ## Convenciones de nombres
 
-- Componentes TypeScript: `NombreComponente.tsx`.
+- Componentes TypeScript: `NombreComponente.tsx` (PascalCase).
+- Archivos CSS: `nombreComponente.css` (camelCase), con el mismo nombre base que su componente.
 - Componentes JavaScript con JSX: `NombreComponente.jsx`.
-- JavaScript sin JSX: `NombreComponente.js`.
+- JavaScript sin JSX: `nombreArchivo.js`.
 - Variables, funciones y hooks usan camelCase.
 - Componentes, interfaces y tipos usan PascalCase.
 - Constantes globales pueden usar UPPER_SNAKE_CASE.
-- Cada hoja CSS particular debe tener el mismo nombre base que el componente.
 
 Ejemplo:
 
 ```text
-src/components/Button/
-  Button.tsx
-  Button.css
+src/components/molecules/FormField.tsx
+src/styles/components/molecules/formField.css
 ```
 
 El componente importa su hoja de estilos:
 
 ```tsx
-import "./Button.css";
+import "../../styles/components/molecules/formField.css";
 ```
 
 ## Convenciones de estilos
 
-- `src/styles/global.css`: estilos y variables compartidos por cliente y administrador.
-- `src/styles/components/Nombre.css`: estilos de componentes compartidos.
-- `src/styles/pages/Nombre.css`: estilos de paginas compartidas.
-- `src/styles/client/Nombre.css`: estilos exclusivos del cliente.
-- `src/styles/admin/Nombre.css`: estilos exclusivos del administrador.
-- `Nombre.module.css` puede usarse como alternativa local.
+| Ubicacion | Contenido |
+| --- | --- |
+| `src/styles/global.css` | Variables y estilos compartidos por cliente y administrador. |
+| `src/styles/components/atoms/` | Estilos de atomos. |
+| `src/styles/components/molecules/` | Estilos de moleculas. |
+| `src/styles/components/organisms/` | Estilos de organismos. |
+| `src/styles/client/` | Estilos de paginas del cliente. |
+| `src/styles/admin/` | Estilos de paginas del administrador. |
 
-Los estilos particulares son opcionales:
-
-- Una pagina puede usar solo `global.css` si sus estilos ya estan cubiertos.
-- `styles/client` debe utilizarse solo para estilos exclusivos del area cliente.
-- `styles/admin` debe utilizarse solo para estilos exclusivos del area administrativa.
-- Un componente tambien puede usar su CSS propio solo si sus estilos necesitan independencia.
-
-Ejemplo de clases:
+Nombres de clases (BEM con prefijo del componente):
 
 ```css
-.header-ms__logo
-.header-ms__navigation
+.header__logo
+.header__navigation
+.formField__error
+.button--primary
 ```
 
 Reglas:
 
 - Importar `global.css` una sola vez desde `src/main.tsx`.
-- Importar el CSS particular desde el componente que lo utiliza.
-- No mezclar estilos globales con estilos exclusivos.
-- No usar estilos en linea mediante el atributo `style`.
-- Evitar clases genericas que puedan afectar otra area.
+- Importar el CSS de cada componente desde su propio `.tsx`.
 - Centralizar colores, espacios y tipografias en variables CSS dentro de `global.css`.
+- No repetir colores ni fuentes en los CSS de componentes: usar las variables.
+- No usar estilos en linea mediante el atributo `style`.
+- No mezclar estilos globales con estilos exclusivos de un componente.
+- Evitar clases genericas que puedan afectar otra area.
+
+## Componentes reutilizables
+
+- Los componentes reciben props para personalizarse (variantes, textos, callbacks).
+- Cada componente mantiene su logica dentro de su `.tsx`.
+- Un componente nuevo debe revisarse contra los existentes antes de crearlo, para no duplicar.
+- Los atomos y moleculas compartidos (por ejemplo `Button`, `FormField`, `SectionHeader`) se
+  suben primero a `main` para que el resto del equipo los reutilice.
 
 ## Trabajo colaborativo con Git
 
