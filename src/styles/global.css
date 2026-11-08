@@ -1,4 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+
+:root {
+    /* Colores base */
+    --crema: #FFF5E1;
+    --rosa: #FFC0CB;
+    --rosa-hover: #FFB0BE;
+    --chocolate: #8B4513;
+    --chocolate-oscuro: #6F360F;
+    --blanco: #FFFFFF;
+
+    /* Texto */
+    --texto: #5D4037;
+    --texto-secundario: #B0BEC5;
+
+    /* Bordes y campos */
+    --borde: #E0D3C7;
+    --borde-suave: #F0E5DB;
+    --placeholder: #A99A91;
+
+    /* Estados */
+    --error: #B03A2E;
+    --exito: #4F6F52;
+    --peligro: #F3D4D0;
+    --peligro-hover: #EBC3BE;
+    --peligro-texto: #8B3A32;
+    --cancelar: #E8DED8;
+    --cancelar-hover: #DCCFC7;
+
+    /* Tipografías */
+    --fuente-base: 'Lato', sans-serif;
+    --fuente-titulo: 'Pacifico', cursive;
+
+    /* Radios y sombras */
+    --radio-sm: 9px;
+    --radio-md: 12px;
+    --radio-lg: 18px;
+    --radio-pill: 25px;
+    --sombra-card: 0 8px 25px rgba(93, 64, 55, 0.08);
+    --sombra-hover: 0 4px 10px rgba(93, 64, 55, 0.25);
+    --foco: 0 0 0 3px rgba(255, 192, 203, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  min-width: 320px;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--crema);
+    color: var(--texto);
+    font-family: var(--fuente-base);
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: inherit;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
 }

@@ -1,0 +1,14 @@
+.formMessage {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.formMessage--success {
+    color: var(--exito);
+}
+
+.formMessage--error {
+    color: var(--error);
+}

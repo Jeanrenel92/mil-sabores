@@ -1,0 +1,19 @@
+.contactForm {
+    padding: 30px;
+    border-radius: var(--radio-lg);
+    background: var(--blanco);
+    box-shadow: var(--sombra-card);
+}
+
+.contactForm__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 750px) {
+    .contactForm {
+        padding: 25px 20px;
+    }
+}

@@ -1,10 +1,15 @@
+import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
+import Home from "./pages/client/Home";
+
 function App() {
   return (
-    <main>
-      <h1>Mil Sabores</h1>
-      <p>Proyecto listo para comenzar.</p>
-    </main>
-  )
+    <>
+      <Header />
+      <Home />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

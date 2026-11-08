@@ -1,0 +1,64 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radio-pill);
+    font-family: var(--fuente-base);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button--full {
+    width: 100%;
+}
+
+.button--primary {
+    background: var(--chocolate);
+    color: var(--blanco);
+}
+
+.button--primary:hover:not(:disabled) {
+    background: var(--chocolate-oscuro);
+    box-shadow: var(--sombra-hover);
+}
+
+.button--pink {
+    background: var(--rosa);
+    color: var(--chocolate);
+}
+
+.button--pink:hover:not(:disabled) {
+    background: var(--rosa-hover);
+}
+
+.button--danger {
+    background: var(--peligro);
+    color: var(--peligro-texto);
+}
+
+.button--danger:hover:not(:disabled) {
+    background: var(--peligro-hover);
+}
+
+.button--cancel {
+    background: var(--cancelar);
+    color: var(--texto);
+}
+
+.button--cancel:hover:not(:disabled) {
+    background: var(--cancelar-hover);
+}
