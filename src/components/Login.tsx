@@ -1,8 +1,9 @@
 
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { getUserByEmail } from "../services/userService";
-
+import "../styles/client/login.css";
 const dominiosPermitidos = [
   "@duoc.cl",
   "@profesor.duoc.cl",
@@ -99,75 +100,63 @@ function Login() {
   };
 
   return (
-    <>
-      {/* Header */}
-      <header>
-        {/* Aquí incorporaremos el componente Header */}
-      </header>
+    <div className="login-container">
+      <section className="login-card">
+        <h1>Iniciar sesión</h1>
 
-      <main className="login-container">
-        <section className="login-card">
-          <h1>Iniciar sesión</h1>
+        <p>Ingresa a tu cuenta de Pastelería 1000 Sabores</p>
 
-          <p>Ingresa a tu cuenta de Pastelería 1000 Sabores</p>
+        <form id="loginForm" onSubmit={handleSubmit}>
+          <div className="campo">
+            <label htmlFor="correo">Correo electrónico</label>
 
-          <form id="loginForm" onSubmit={handleSubmit}>
-            <div className="campo">
-              <label htmlFor="correo">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              maxLength={100}
+              placeholder="ejemplo@gmail.com"
+              value={correo}
+              onChange={(event) => setCorreo(event.target.value)}
+            />
 
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                maxLength={100}
-                placeholder="ejemplo@gmail.com"
-                value={correo}
-                onChange={(event) => setCorreo(event.target.value)}
-              />
-
-              <span className="error" id="errorCorreo">
-                {errorCorreo}
-              </span>
-            </div>
-
-            <div className="campo">
-              <label htmlFor="contrasena">Contraseña</label>
-
-              <input
-                type="password"
-                id="contrasena"
-                name="contrasena"
-                minLength={4}
-                maxLength={10}
-                placeholder="Ingresa tu contraseña"
-                value={contrasena}
-                onChange={(event) => setContrasena(event.target.value)}
-              />
-
-              <span className="error" id="errorContrasena">
-                {errorContrasena}
-              </span>
-            </div>
-
-            <span className="error mensaje-login" id="mensajeLogin">
-              {mensajeLogin}
+            <span className="error" id="errorCorreo">
+              {errorCorreo}
             </span>
-
-            <button type="submit">Iniciar sesión</button>
-          </form>
-
-          <div className="crear-cuenta">
-            <span>¿No tienes una cuenta todavía?</span>
-            <a href="/registro">Crear cuenta</a>
           </div>
-        </section>
-      </main>
 
-      {/* Footer */}
-      <footer>
-        {/* Aquí incorporaremos el componente Footer */}
-      </footer>
-    </>
+          <div className="campo">
+            <label htmlFor="contrasena">Contraseña</label>
+
+            <input
+              type="password"
+              id="contrasena"
+              name="contrasena"
+              minLength={4}
+              maxLength={10}
+              placeholder="Ingresa tu contraseña"
+              value={contrasena}
+              onChange={(event) => setContrasena(event.target.value)}
+            />
+
+            <span className="error" id="errorContrasena">
+              {errorContrasena}
+            </span>
+          </div>
+
+          <span className="error mensaje-login" id="mensajeLogin">
+            {mensajeLogin}
+          </span>
+
+          <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <div className="crear-cuenta">
+          <span>¿No tienes una cuenta todavía?</span>
+          <Link to="/registro">Crear cuenta</Link>
+        </div>
+      </section>
+    </div>
   );
 }
 
