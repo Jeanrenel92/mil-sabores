@@ -22,5 +22,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "ts/blog.ts", "ts/blogStories.ts", "ts/contact.ts", "ts/product.ts"]
+  "include": ["src"]
 }

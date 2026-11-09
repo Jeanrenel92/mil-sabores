@@ -45,6 +45,7 @@ function toValues(product: Product | null | undefined): ProductFormValues {
 
 interface ProductFormProps {
   categories: SelectOption[]
+  imageOptions: SelectOption[]
   existingCodes: string[]
   onSubmit: (product: Product) => void
   onCancel: () => void
@@ -58,6 +59,7 @@ interface ProductFormProps {
  */
 function ProductForm({
   categories,
+  imageOptions,
   existingCodes,
   onSubmit,
   onCancel,
@@ -107,7 +109,7 @@ function ProductForm({
     }
 
     if (cleaned.imagen === '') {
-      newErrors.imagen = 'La imagen es obligatoria.'
+      newErrors.imagen = 'Selecciona una imagen.'
     }
 
     return newErrors
@@ -218,10 +220,11 @@ function ProductForm({
             error={errors.imagen}
             className="productForm__field--full"
           >
-            <Input {...fieldProps('imagen')} placeholder="Ej: TC001.jpg" />
-            <small className="productForm__hint">
-              La imagen debe estar ubicada en images/picture/
-            </small>
+            <Select
+              {...fieldProps('imagen')}
+              options={imageOptions}
+              placeholder="Seleccionar imagen"
+            />
           </FormField>
         </div>
 

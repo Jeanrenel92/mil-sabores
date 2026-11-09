@@ -14,7 +14,6 @@ interface HeaderProps {
   logoText: string
   links: HeaderLink[]
   logoHref?: string
-  activePath?: string
   actions?: ReactNode
 }
 
@@ -23,7 +22,6 @@ function Header({
   logoText,
   links,
   logoHref = '/',
-  activePath,
   actions,
 }: HeaderProps) {
   return (
@@ -35,7 +33,7 @@ function Header({
           <ul className="header__menu">
             {links.map((link) => (
               <li key={link.href}>
-                <NavLink href={link.href} active={link.href === activePath}>
+                <NavLink to={link.href}>
                   {link.label}
                 </NavLink>
               </li>

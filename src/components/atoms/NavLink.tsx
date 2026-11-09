@@ -1,29 +1,26 @@
-import type { AnchorHTMLAttributes } from 'react'
+import { NavLink as RouterNavLink } from 'react-router-dom'
+import type { ReactNode } from 'react'
 import '../../styles/atoms/navLink.css'
 
-interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string
-  active?: boolean
+interface NavLinkProps {
+  to: string
+  children: ReactNode
+  className?: string
 }
 
-function NavLink({
-  active = false,
-  className = '',
-  children,
-  ...rest
-}: NavLinkProps) {
-  const classes = ['navLink', active ? 'navLink--active' : '', className]
-    .filter(Boolean)
-    .join(' ')
-
+function NavLink({ to, children, className = '' }: NavLinkProps) {
   return (
-    <a
-      className={classes}
-      aria-current={active ? 'page' : undefined}
-      {...rest}
+    <RouterNavLink
+      to={to}
+      end={to === '/'}
+      className={({ isActive }) =>
+        ['navLink', isActive ? 'navLink--active' : '', className]
+          .filter(Boolean)
+          .join(' ')
+      }
     >
       {children}
-    </a>
+    </RouterNavLink>
   )
 }
 

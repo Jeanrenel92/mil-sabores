@@ -7,7 +7,6 @@ interface ProductTableRowProps {
   product: Product
   onEdit: (codigo: string) => void
   onDelete: (codigo: string) => void
-  imageBasePath?: string
 }
 
 const priceFormatter = new Intl.NumberFormat('es-CL', {
@@ -20,14 +19,13 @@ function ProductTableRow({
   product,
   onEdit,
   onDelete,
-  imageBasePath = '/images/picture/',
 }: ProductTableRowProps) {
   return (
     <tr className="productTableRow">
       <td className="productTableRow__cell">
         <div className="productTableRow__image">
           <Image
-            src={`${imageBasePath}${encodeURI(product.imagen)}`}
+            src={product.imagen}
             alt={product.nombre}
             fit="cover"
           />

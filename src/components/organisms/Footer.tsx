@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { images } from '../../assets/image'
 import Logo from '../atoms/Logo'
 import '../../styles/organisms/footer.css'
@@ -56,9 +57,15 @@ function Footer({
               <ul className="footer__links">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="footer__link">
-                      {link.label}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <Link to={link.href} className="footer__link">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className="footer__link">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

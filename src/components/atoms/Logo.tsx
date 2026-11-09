@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../../styles/atoms/logo.css'
 
 interface LogoProps {
@@ -12,10 +13,10 @@ function Logo({ src, text, alt, href = '/', className = '' }: LogoProps) {
   const classes = ['logo', className].filter(Boolean).join(' ')
 
   return (
-    <a href={href} className={classes}>
+    <Link to={href} className={classes}>
       <img className="logo__image" src={src} alt={alt ?? `Logo de ${text}`} />
       <span className="logo__text">{text}</span>
-    </a>
+    </Link>
   )
 }
 

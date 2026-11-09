@@ -1,28 +1,15 @@
-
-import Header from "./components/organisms/Header";
-import Footer from "./components/organisms/Footer";
-import Home from "./pages/client/Home";
+import { Route, Routes } from 'react-router-dom'
+import { ADMIN_BASE_PATH } from './data/adminConfig'
+import AdminRoutes from './routes/AdminRoutes'
+import ClientRoutes from './routes/ClientRoutes'
 
 function App() {
   return (
-    <>
-      <Header
-        logoText="Mil Sabores"
-        logoHref="/"
-        activePath="/"
-        links={[
-          { label: "Inicio", href: "/" },
-          { label: "Productos", href: "/productos" },
-          { label: "Nosotros", href: "/nosotros" },
-          { label: "Contacto", href: "/contacto" },
-        ]}
-      />
-
-      <Home />
-
-      <Footer />
-    </>
-  );
+    <Routes>
+      <Route path={`${ADMIN_BASE_PATH}/*`} element={<AdminRoutes />} />
+      <Route path="/*" element={<ClientRoutes />} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App

@@ -15,7 +15,6 @@ interface ProductTableProps {
   products: Product[]
   onEdit: (codigo: string) => void
   onDelete: (codigo: string) => void
-  imageBasePath?: string
   emptyMessage?: string
 }
 
@@ -23,7 +22,6 @@ function ProductTable({
   products,
   onEdit,
   onDelete,
-  imageBasePath,
   emptyMessage = 'No se encontraron productos.',
 }: ProductTableProps) {
   return (
@@ -51,7 +49,6 @@ function ProductTable({
               <ProductTableRow
                 key={product.codigo}
                 product={product}
-                imageBasePath={imageBasePath}
                 onEdit={onEdit}
                 onDelete={onDelete}
               />

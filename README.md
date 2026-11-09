@@ -17,6 +17,7 @@ o las convenciones acordadas por el equipo.
 ## Tecnologias
 
 - React 19
+- React Router
 - TypeScript
 - Vite
 - Vitest
@@ -70,19 +71,19 @@ src/
   pages/
     client/        Paginas publicas y funcionalidades de clientes.
     admin/         Paginas protegidas y funcionalidades administrativas.
-  templates/       Distribucion general reutilizada por paginas.
-  routes/          Definicion de rutas y proteccion de accesos.
+  templates/       ClientLayout (Header + Footer) y AdminLayout (panel administrativo).
+  routes/          ClientRoutes (sitio publico) y AdminRoutes (prefijo /admin), separadas.
   services/        Comunicacion con APIs y servicios externos.
   context/         Estado compartido mediante Context API.
   hooks/           Hooks personalizados.
   types/           Tipos e interfaces compartidos.
   utils/           Funciones auxiliares.
+  data/            Datos estaticos (productos iniciales, historias del blog, configuracion del sitio).
   styles/
     global.css     Variables, reseteos, tipografias y clases base.
-    components/
-      atoms/       CSS de los atomos.
-      molecules/   CSS de las moleculas.
-      organisms/   CSS de los organismos.
+    atoms/         CSS de los atomos.
+    molecules/     CSS de las moleculas.
+    organisms/     CSS de los organismos.
     client/        CSS de paginas del area cliente.
     admin/         CSS de paginas del area administrativa.
   App.tsx          Componente raiz.
@@ -116,13 +117,13 @@ Ejemplo:
 
 ```text
 src/components/molecules/FormField.tsx
-src/styles/components/molecules/formField.css
+src/styles/molecules/formField.css
 ```
 
 El componente importa su hoja de estilos:
 
 ```tsx
-import "../../styles/components/molecules/formField.css";
+import "../../styles/molecules/formField.css";
 ```
 
 ## Convenciones de estilos
@@ -130,9 +131,9 @@ import "../../styles/components/molecules/formField.css";
 | Ubicacion | Contenido |
 | --- | --- |
 | `src/styles/global.css` | Variables y estilos compartidos por cliente y administrador. |
-| `src/styles/components/atoms/` | Estilos de atomos. |
-| `src/styles/components/molecules/` | Estilos de moleculas. |
-| `src/styles/components/organisms/` | Estilos de organismos. |
+| `src/styles/atoms/` | Estilos de atomos. |
+| `src/styles/molecules/` | Estilos de moleculas. |
+| `src/styles/organisms/` | Estilos de organismos. |
 | `src/styles/client/` | Estilos de paginas del cliente. |
 | `src/styles/admin/` | Estilos de paginas del administrador. |
 

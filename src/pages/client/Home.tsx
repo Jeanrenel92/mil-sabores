@@ -2,7 +2,7 @@ import Title from "../../components/atoms/Title";
 
 function Home() {
   return (
-    <main>
+    <div>
       <section>
         <Title level={1} align="center">
           Este es el titulo principal en h1
@@ -14,7 +14,7 @@ function Home() {
           Este es la seccion donde aparecen nuestros productos destacados
         </Title>
       </section>
-    </main>
+    </div>
   );
 }
 

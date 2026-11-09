@@ -62,7 +62,7 @@ function obtenerFechaActual(): string {
 }
 
 function normalizarRUN(run: string): string {
-  return run.replace(/[.\-]/g, "").trim().toUpperCase();
+  return run.replace(/[.-]/g, "").trim().toUpperCase();
 }
 
 function validarRUN(runOriginal: string): boolean {
