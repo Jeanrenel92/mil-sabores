@@ -52,13 +52,16 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     min-width: 320px;
-    min-height: 100vh;
     background-color: var(--crema);
     color: var(--texto);
     font-family: var(--fuente-base);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
