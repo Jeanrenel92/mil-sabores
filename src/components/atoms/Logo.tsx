@@ -1,4 +1,4 @@
-import '../../styles/components/atoms/logo.css'
+import '../../styles/atoms/logo.css'
 
 interface LogoProps {
   src: string

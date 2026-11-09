@@ -7,7 +7,7 @@ import Title from '../atoms/Title'
 import FormField from '../molecules/FormField'
 import FormMessage from '../molecules/FormMessage'
 import type { ContactFormData } from '../../types/contact'
-import '../../styles/components/organisms/contactForm.css'
+import '../../styles/organisms/contactForm.css'
 
 type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>
 type FormStatus = 'idle' | 'success' | 'error'

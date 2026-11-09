@@ -1,5 +1,5 @@
 import type { ImgHTMLAttributes } from 'react'
-import '../../styles/components/atoms/image.css'
+import '../../styles/atoms/image.css'
 
 export type ImageFit = 'contain' | 'cover'
 

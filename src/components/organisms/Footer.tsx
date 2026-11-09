@@ -1,5 +1,6 @@
+import { images } from '../../assets/image'
 import Logo from '../atoms/Logo'
-import '../../styles/components/organisms/footer.css'
+import '../../styles/organisms/footer.css'
 
 export interface FooterLink {
   label: string
@@ -13,18 +14,18 @@ export interface FooterColumn {
 }
 
 interface FooterProps {
-  logoSrc: string
-  logoText: string
-  copyright: string
+  logoSrc?: string
+  logoText?: string
+  copyright?: string
   contactLines?: string[]
   columns?: FooterColumn[]
   logoHref?: string
 }
 
 function Footer({
-  logoSrc,
-  logoText,
-  copyright,
+  logoSrc = images.logo.logo_1000,
+  logoText = 'Mil Sabores',
+  copyright = '© 2026 Mil Sabores. Todos los derechos reservados.',
   contactLines = [],
   columns = [],
   logoHref = '/',

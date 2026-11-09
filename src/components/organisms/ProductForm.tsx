@@ -8,7 +8,7 @@ import Textarea from '../atoms/Textarea'
 import FormField from '../molecules/FormField'
 import ModalHeader from '../molecules/ModalHeader'
 import type { Product } from '../../types/product'
-import '../../styles/components/organisms/productForm.css'
+import '../../styles/organisms/productForm.css'
 
 interface ProductFormValues {
   codigo: string

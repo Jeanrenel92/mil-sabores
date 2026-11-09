@@ -1,6 +1,6 @@
 import BlogCard from '../molecules/BlogCard'
 import type { BlogPost } from '../../types/blog'
-import '../../styles/components/organisms/blogGrid.css'
+import '../../styles/organisms/blogGrid.css'
 
 interface BlogGridProps {
   posts: BlogPost[]

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import '../../styles/components/molecules/formMessage.css'
+import '../../styles/molecules/formMessage.css'
 
 export type FormMessageType = 'success' | 'error'
 

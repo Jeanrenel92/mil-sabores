@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
+import { images } from '../../assets/image'
 import Logo from '../atoms/Logo'
 import NavLink from '../atoms/NavLink'
-import '../../styles/components/organisms/header.css'
+import '../../styles/organisms/header.css'
 
 export interface HeaderLink {
   label: string
@@ -9,7 +10,7 @@ export interface HeaderLink {
 }
 
 interface HeaderProps {
-  logoSrc: string
+  logoSrc?: string
   logoText: string
   links: HeaderLink[]
   logoHref?: string
@@ -18,7 +19,7 @@ interface HeaderProps {
 }
 
 function Header({
-  logoSrc,
+  logoSrc = images.logo.logo_1000,
   logoText,
   links,
   logoHref = '/',

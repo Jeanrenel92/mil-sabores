@@ -5,13 +5,13 @@ function Home() {
     <main>
       <section>
         <Title level={1} align="center">
-          Mil Sabores
+          Este es el titulo principal en h1
         </Title>
 
-        <Title level={2}>Nuestra historia</Title>
+        <Title level={2}>este es un h2</Title>
 
         <Title level={3} align="left">
-          Productos destacados
+          Este es la seccion donde aparecen nuestros productos destacados
         </Title>
       </section>
     </main>

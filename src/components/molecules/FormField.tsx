@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Label from '../atoms/Label'
 import ErrorText from '../atoms/ErrorText'
-import '../../styles/components/molecules/formField.css'
+import '../../styles/molecules/formField.css'
 
 interface FormFieldProps {
   id: string

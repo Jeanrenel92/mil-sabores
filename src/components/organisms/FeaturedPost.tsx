@@ -2,7 +2,7 @@ import Button from '../atoms/Button'
 import Image from '../atoms/Image'
 import Tag from '../atoms/Tag'
 import Title from '../atoms/Title'
-import '../../styles/components/organisms/featuredPost.css'
+import '../../styles/organisms/featuredPost.css'
 
 interface FeaturedPostProps {
   image: string

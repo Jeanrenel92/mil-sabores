@@ -1,5 +1,5 @@
 import type { TextareaHTMLAttributes } from 'react'
-import '../../styles/components/atoms/textarea.css'
+import '../../styles/atoms/textarea.css'
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   hasError?: boolean

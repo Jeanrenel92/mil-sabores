@@ -1,6 +1,6 @@
 import Tag from '../atoms/Tag'
 import Title from '../atoms/Title'
-import '../../styles/components/molecules/sectionHeader.css'
+import '../../styles/molecules/sectionHeader.css'
 
 interface SectionHeaderProps {
   title: string

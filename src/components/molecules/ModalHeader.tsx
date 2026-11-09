@@ -1,6 +1,6 @@
 import IconButton from '../atoms/IconButton'
 import Title from '../atoms/Title'
-import '../../styles/components/molecules/modalHeader.css'
+import '../../styles/molecules/modalHeader.css'
 
 interface ModalHeaderProps {
   title: string

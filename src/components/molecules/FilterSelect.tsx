@@ -1,7 +1,7 @@
 import Select from '../atoms/Select'
 import type { SelectOption } from '../atoms/Select'
 import FormField from './FormField'
-import '../../styles/components/molecules/filterSelect.css'
+import '../../styles/molecules/filterSelect.css'
 
 interface FilterSelectProps {
   id: string

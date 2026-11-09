@@ -1,7 +1,7 @@
 import Image from '../atoms/Image'
 import Tag from '../atoms/Tag'
 import Title from '../atoms/Title'
-import '../../styles/components/molecules/blogCard.css'
+import '../../styles/molecules/blogCard.css'
 
 interface BlogCardProps {
   image: string

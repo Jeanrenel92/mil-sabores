@@ -4,7 +4,7 @@ import Image from '../atoms/Image'
 import Tag from '../atoms/Tag'
 import ModalHeader from '../molecules/ModalHeader'
 import type { BlogStory } from '../../types/blog'
-import '../../styles/components/organisms/storyModal.css'
+import '../../styles/organisms/storyModal.css'
 
 interface StoryModalProps {
   story: BlogStory | null

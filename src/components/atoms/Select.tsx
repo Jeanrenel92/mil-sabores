@@ -1,5 +1,5 @@
 import type { SelectHTMLAttributes } from 'react'
-import '../../styles/components/atoms/select.css'
+import '../../styles/atoms/select.css'
 
 export interface SelectOption {
   value: string

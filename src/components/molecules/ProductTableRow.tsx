@@ -1,7 +1,7 @@
 import Button from '../atoms/Button'
 import Image from '../atoms/Image'
 import type { Product } from '../../types/product'
-import '../../styles/components/molecules/productTableRow.css'
+import '../../styles/molecules/productTableRow.css'
 
 interface ProductTableRowProps {
   product: Product

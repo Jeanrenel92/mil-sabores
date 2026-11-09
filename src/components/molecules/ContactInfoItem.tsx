@@ -1,4 +1,4 @@
-import '../../styles/components/molecules/contactInfoItem.css'
+import '../../styles/molecules/contactInfoItem.css'
 
 interface ContactInfoItemProps {
   label: string

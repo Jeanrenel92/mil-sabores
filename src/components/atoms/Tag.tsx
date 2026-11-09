@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import '../../styles/components/atoms/tag.css'
+import '../../styles/atoms/tag.css'
 
 function Tag({
   className = '',

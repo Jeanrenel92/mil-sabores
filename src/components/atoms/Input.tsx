@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from 'react'
-import '../../styles/components/atoms/input.css'
+import '../../styles/atoms/input.css'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean

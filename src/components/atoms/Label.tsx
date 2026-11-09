@@ -1,5 +1,5 @@
 import type { LabelHTMLAttributes } from 'react'
-import '../../styles/components/atoms/label.css'
+import '../../styles/atoms/label.css'
 
 function Label({
   className = '',

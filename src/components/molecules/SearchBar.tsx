@@ -1,6 +1,6 @@
 import Input from '../atoms/Input'
 import FormField from './FormField'
-import '../../styles/components/molecules/searchBar.css'
+import '../../styles/molecules/searchBar.css'
 
 interface SearchBarProps {
   id: string

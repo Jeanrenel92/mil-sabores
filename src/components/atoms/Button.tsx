@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react'
-import '../../styles/components/atoms/button.css'
+import '../../styles/atoms/button.css'
 
 export type ButtonVariant = 'primary' | 'pink' | 'danger' | 'cancel'
 

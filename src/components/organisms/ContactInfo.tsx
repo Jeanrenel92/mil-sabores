@@ -1,6 +1,6 @@
 import Title from '../atoms/Title'
 import ContactInfoItem from '../molecules/ContactInfoItem'
-import '../../styles/components/organisms/contactInfo.css'
+import '../../styles/organisms/contactInfo.css'
 
 export interface ContactInfoEntry {
   label: string

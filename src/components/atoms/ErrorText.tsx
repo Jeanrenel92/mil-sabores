@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import '../../styles/components/atoms/errorText.css'
+import '../../styles/atoms/errorText.css'
 
 function ErrorText({
   className = '',

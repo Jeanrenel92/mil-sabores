@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import '../../styles/components/atoms/title.css'
+import '../../styles/atoms/title.css'
 
 export type TitleLevel = 1 | 2 | 3
 export type TitleAlign = 'left' | 'center'

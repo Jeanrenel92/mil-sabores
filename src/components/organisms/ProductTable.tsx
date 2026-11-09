@@ -1,6 +1,6 @@
 import ProductTableRow from '../molecules/ProductTableRow'
 import type { Product } from '../../types/product'
-import '../../styles/components/organisms/productTable.css'
+import '../../styles/organisms/productTable.css'
 
 const columns = [
   'Imagen',
