@@ -1,0 +1,34 @@
+.productFilters {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.productFilters .productFilters__search {
+    flex: 1 1 240px;
+    width: auto;
+}
+
+.productFilters .productFilters__category {
+    flex: 0 1 205px;
+    width: auto;
+}
+
+@media (max-width: 900px) {
+    .productFilters {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .productFilters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .productFilters .productFilters__search,
+    .productFilters .productFilters__category {
+        flex: none;
+        width: 100%;
+    }
+}
