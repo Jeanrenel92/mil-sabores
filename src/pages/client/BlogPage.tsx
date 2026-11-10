@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import Input from '../../components/atoms/Input'
+import type { SelectOption } from '../../components/atoms/Select'
+import Select from '../../components/atoms/Select'
 import SectionHeader from '../../components/molecules/SectionHeader'
 import BlogGrid from '../../components/organisms/BlogGrid'
 import FeaturedPost from '../../components/organisms/FeaturedPost'
@@ -8,9 +11,25 @@ import '../../styles/client/blogPage.css'
 
 function BlogPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [search, setSearch] = useState('')
+  const [category, setCategory] = useState('')
 
   const selectedStory =
     blogStories.find((story) => story.id === selectedId) ?? null
+  const categoryOptions: SelectOption[] = Array.from(
+    new Set(blogPosts.map((post) => post.category)),
+  ).map((item) => ({ value: item, label: item }))
+  const searchTerm = search.trim().toLocaleLowerCase('es')
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesSearch =
+      searchTerm === '' ||
+      `${post.title} ${post.excerpt} ${post.category}`
+        .toLocaleLowerCase('es')
+        .includes(searchTerm)
+    const matchesCategory = category === '' || post.category === category
+
+    return matchesSearch && matchesCategory
+  })
 
   const handleClose = () => setSelectedId(null)
 
@@ -41,9 +60,41 @@ function BlogPage() {
             level={2}
             tag="NUESTRA HISTORIA"
             title="🎂 Historias de la pastelería"
-            description="Conoce las historias, personas y momentos que forman parte de 1000 Sabores."
+            description="Conoce las historias, personas y momentos que forman parte de Mil Sabores."
           />
-          <BlogGrid posts={blogPosts} onRead={setSelectedId} />
+          <div className="blogPage__filters row g-3">
+            <div className="col-12 col-md-7">
+              <label className="blogPage__filterLabel" htmlFor="blog-search">
+                Buscar historias
+              </label>
+              <Input
+                id="blog-search"
+                type="search"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Buscar por título o contenido"
+              />
+            </div>
+            <div className="col-12 col-md-5">
+              <label className="blogPage__filterLabel" htmlFor="blog-category">
+                Categoría
+              </label>
+              <Select
+                id="blog-category"
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+                options={categoryOptions}
+                placeholder="Todas las categorías"
+              />
+            </div>
+          </div>
+          {filteredPosts.length > 0 ? (
+            <BlogGrid posts={filteredPosts} onRead={setSelectedId} />
+          ) : (
+            <p className="blogPage__empty" role="status">
+              No encontramos historias con esos filtros.
+            </p>
+          )}
         </div>
       </section>
 

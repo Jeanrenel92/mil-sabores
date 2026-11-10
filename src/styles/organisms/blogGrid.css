@@ -1,13 +1,8 @@
 .blogGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .blogGrid {
-        grid-template-columns: 1fr;
-    }
+.blogGrid .blogCard {
+    height: 100%;
 }

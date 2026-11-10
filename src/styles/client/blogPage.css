@@ -14,8 +14,32 @@
     background: var(--blanco);
 }
 
+.blogPage__filters {
+    max-width: 850px;
+    margin: 0 auto 30px;
+}
+
+.blogPage__filterLabel {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--chocolate);
+    font-weight: 700;
+}
+
+.blogPage__empty {
+    padding: 28px;
+    border: 1px solid var(--borde-suave);
+    border-radius: var(--radio-md);
+    color: var(--texto);
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .blogPage__hero {
         padding: 60px 20px;
+    }
+
+    .blogPage__stories {
+        padding: 55px 20px;
     }
 }

@@ -159,7 +159,7 @@ function ProductForm({
     <div className="productForm">
       <ModalHeader title={title} onClose={onCancel} closeLabel="Cerrar formulario" />
 
-      <form noValidate onSubmit={handleSubmit}>
+      <form aria-label={title} noValidate onSubmit={handleSubmit}>
         <div className="productForm__grid">
           <FormField id="product-codigo" label="Código" error={errors.codigo}>
             <Input {...fieldProps('codigo')} placeholder="Ej: TC001" />

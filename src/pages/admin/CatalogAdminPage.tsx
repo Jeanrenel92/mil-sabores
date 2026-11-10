@@ -95,15 +95,19 @@ function CatalogAdminPage() {
           />
         )}
 
-        <div className="catalogAdminPage__toolbar">
-          <ProductFilters
-            search={search}
-            onSearchChange={setSearch}
-            category={category}
-            onCategoryChange={setCategory}
-            categories={categoryOptions}
-          />
-          <Button onClick={openNewForm}>Agregar producto</Button>
+        <div className="catalogAdminPage__toolbar row g-3 align-items-end">
+          <div className="col-12 col-lg">
+            <ProductFilters
+              search={search}
+              onSearchChange={setSearch}
+              category={category}
+              onCategoryChange={setCategory}
+              categories={categoryOptions}
+            />
+          </div>
+          <div className="col-12 col-lg-auto">
+            <Button onClick={openNewForm}>Agregar producto</Button>
+          </div>
         </div>
 
         <ProductTable

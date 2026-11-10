@@ -20,9 +20,10 @@ o las convenciones acordadas por el equipo.
 - React Router
 - TypeScript
 - Vite
+- Bootstrap (rejilla adaptable)
 - Vitest
 - ESLint
-- CSS propio (sin Bootstrap)
+- CSS propio para los estilos de cada componente
 
 ## Instalacion
 
@@ -46,13 +47,14 @@ Las versiones y dependencias quedan registradas en `package.json` y `package-loc
 | `npm test -- --run` | Ejecuta todas las pruebas una vez. |
 | `npm run preview` | Previsualiza la compilacion de produccion. |
 
-## Estilos: sin Bootstrap
+## Estilos
 
-El proyecto no usa Bootstrap. Todo el diseno sale de CSS propio:
+El diseno combina la rejilla responsiva de Bootstrap con CSS propio:
 
 - `src/styles/global.css` define variables, reseteo, tipografias y clases base.
 - Cada componente tiene su propio archivo CSS dentro de `src/styles`.
 - Los componentes solo consumen las variables globales (colores, fuentes, espacios).
+- Bootstrap Grid organiza columnas que se adaptan a distintos anchos de pantalla.
 
 ## Organizacion de carpetas
 
