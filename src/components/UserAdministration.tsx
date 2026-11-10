@@ -6,7 +6,7 @@ import {
   type FormEvent,
 } from "react";
 
-import "../usuarios_admin.css";
+import "../styles/admin/usuariosAdmin.css";
 
 import {
   getUsers,
@@ -384,7 +384,7 @@ export default function UsuariosAdmin() {
   }
 
   return (
-    <main>
+    <>
       <section className="usuarios-admin">
         <div className="contenedor">
           <div className="usuarios-encabezado">
@@ -751,6 +751,6 @@ export default function UsuariosAdmin() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

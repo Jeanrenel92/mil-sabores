@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import UserAdministration from '../components/UserAdministration'
 import { ADMIN_BASE_PATH } from '../data/adminConfig'
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage'
 import CatalogAdminPage from '../pages/admin/CatalogAdminPage'
@@ -11,6 +12,7 @@ function AdminRoutes() {
         <Route index element={<Navigate to="resumen" replace />} />
         <Route path="resumen" element={<AdminDashboardPage />} />
         <Route path="catalogo" element={<CatalogAdminPage />} />
+        <Route path="usuarios" element={<UserAdministration />} />
         <Route
           path="*"
           element={<Navigate to={`${ADMIN_BASE_PATH}/resumen`} replace />}

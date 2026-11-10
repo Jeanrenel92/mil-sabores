@@ -33,6 +33,17 @@
     align-items: center;
 }
 
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__actions .button {
+    min-width: 0;
+    padding: 10px 18px;
+}
+
 @media (max-width: 1100px) {
     .header__inner {
         flex-direction: column;

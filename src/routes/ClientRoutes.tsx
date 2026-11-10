@@ -5,6 +5,8 @@ import BlogStoryPage from '../pages/client/BlogStoryPage'
 import ComingSoon from '../pages/client/ComingSoon'
 import ContactPage from '../pages/client/ContactPage'
 import Home from '../pages/client/Home'
+import Login from '../components/Login'
+import Register from '../components/Register'
 import ClientLayout from '../templates/ClientLayout'
 
 function ClientRoutes() {
@@ -17,6 +19,8 @@ function ClientRoutes() {
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/:storyId" element={<BlogStoryPage />} />
         <Route path="contacto" element={<ContactPage />} />
+        <Route path="login" element={<Login />} />
+        <Route path="registro" element={<Register />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
