@@ -5,17 +5,13 @@ import Select from '../../components/atoms/Select'
 import SectionHeader from '../../components/molecules/SectionHeader'
 import BlogGrid from '../../components/organisms/BlogGrid'
 import FeaturedPost from '../../components/organisms/FeaturedPost'
-import StoryModal from '../../components/organisms/StoryModal'
-import { blogPosts, blogStories, featuredPost } from '../../data/blogStories'
+import { blogPosts, featuredPost } from '../../data/blogStories'
 import '../../styles/client/blogPage.css'
 
 function BlogPage() {
-  const [selectedId, setSelectedId] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('')
 
-  const selectedStory =
-    blogStories.find((story) => story.id === selectedId) ?? null
   const categoryOptions: SelectOption[] = Array.from(
     new Set(blogPosts.map((post) => post.category)),
   ).map((item) => ({ value: item, label: item }))
@@ -30,8 +26,6 @@ function BlogPage() {
 
     return matchesSearch && matchesCategory
   })
-
-  const handleClose = () => setSelectedId(null)
 
   return (
     <div className="blogPage">
@@ -51,7 +45,7 @@ function BlogPage() {
         category={featuredPost.category}
         title={featuredPost.title}
         excerpt={featuredPost.excerpt}
-        onRead={() => setSelectedId(featuredPost.id)}
+        to={`/blog/${featuredPost.id}`}
       />
 
       <section className="blogPage__stories">
@@ -89,7 +83,7 @@ function BlogPage() {
             </div>
           </div>
           {filteredPosts.length > 0 ? (
-            <BlogGrid posts={filteredPosts} onRead={setSelectedId} />
+            <BlogGrid posts={filteredPosts} />
           ) : (
             <p className="blogPage__empty" role="status">
               No encontramos historias con esos filtros.
@@ -97,8 +91,6 @@ function BlogPage() {
           )}
         </div>
       </section>
-
-      <StoryModal story={selectedStory} onClose={handleClose} />
     </div>
   )
 }

@@ -1,0 +1,138 @@
+
+.registro-container {
+    padding: 70px 0;
+}
+
+.registro-card {
+    width: 90%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    border-radius: var(--radio-lg);
+    background: var(--blanco);
+    box-shadow: var(--sombra-card);
+}
+
+.registro-card h1 {
+    margin-bottom: 10px;
+    color: var(--chocolate);
+    font-family: var(--fuente-titulo);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.registro-card > p {
+    margin-bottom: 25px;
+    color: var(--texto);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.registro-card .mensaje-global {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border: 1px solid var(--borde-suave);
+    border-radius: var(--radio-md);
+    background: var(--crema);
+    color: var(--chocolate);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.registro-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.registro-card .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.registro-card label {
+    color: var(--chocolate);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.registro-card input,
+.registro-card select {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    outline: none;
+    background: var(--blanco);
+    color: var(--texto);
+    font-family: var(--fuente-base);
+    font-size: 0.92rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.registro-card input::placeholder {
+    color: var(--placeholder);
+}
+
+.registro-card input:focus,
+.registro-card select:focus {
+    border-color: var(--rosa);
+    box-shadow: var(--foco);
+}
+
+.registro-card select {
+    cursor: pointer;
+}
+
+.registro-card select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.registro-card .error {
+    display: block;
+    color: var(--error);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.registro-card button[type="submit"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radio-pill);
+    background: var(--chocolate);
+    color: var(--blanco);
+    font-family: var(--fuente-base);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.registro-card button[type="submit"]:hover {
+    background: var(--chocolate-oscuro);
+    box-shadow: var(--sombra-hover);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .registro-container {
+        padding: 50px 0;
+    }
+
+    .registro-card {
+        padding: 28px 20px;
+    }
+
+    .registro-card h1 {
+        font-size: 1.9rem;
+    }
+}

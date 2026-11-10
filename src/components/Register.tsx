@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import "../registro.css";
+import "../styles/client/registro.css";
 
 import { getUserByEmail, registerUser } from "../services/userService";
 import type { User } from "../types/User";
@@ -109,7 +109,7 @@ export default function Registro() {
   };
 
   return (
-    <main className="registro-container">
+    <div className="registro-container">
       <section className="registro-card">
         <h1>Crear cuenta</h1>
         <p>Regístrate en Pastelería 1000 Sabores</p>
@@ -211,6 +211,6 @@ export default function Registro() {
           <button type="submit">Registrarse</button>
         </form>
       </section>
-    </main>
+    </div>
   );
 }
