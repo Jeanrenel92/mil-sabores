@@ -1,0 +1,31 @@
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--chocolate);
+    text-decoration: none;
+}
+
+.logo__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo__text {
+    font-family: var(--fuente-titulo);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .logo__image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo__text {
+        font-size: 22px;
+    }
+}

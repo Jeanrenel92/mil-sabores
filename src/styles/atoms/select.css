@@ -1,0 +1,29 @@
+.select {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    outline: none;
+    background: var(--blanco);
+    color: var(--texto);
+    font-family: var(--fuente-base);
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.select:focus {
+    border-color: var(--rosa);
+    box-shadow: var(--foco);
+}
+
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.select--error {
+    border-color: var(--chocolate);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.12);
+}

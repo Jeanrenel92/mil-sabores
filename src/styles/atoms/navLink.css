@@ -1,0 +1,40 @@
+.navLink {
+    position: relative;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--texto);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.navLink:hover {
+    background-color: var(--rosa);
+    color: var(--chocolate);
+    transform: translateY(-2px);
+}
+
+.navLink--active {
+    background-color: var(--rosa);
+    color: var(--chocolate);
+}
+
+.navLink--active::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 3px;
+    left: 12px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--chocolate);
+}
+
+@media (max-width: 700px) {
+    .navLink {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}

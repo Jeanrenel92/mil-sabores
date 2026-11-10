@@ -1,0 +1,21 @@
+.blogPage__hero {
+    padding: 80px 20px;
+    background: var(--rosa);
+    text-align: center;
+}
+
+.blogPage__hero .sectionHeader {
+    max-width: 900px;
+    margin-bottom: 0;
+}
+
+.blogPage__stories {
+    padding: 70px 20px;
+    background: var(--blanco);
+}
+
+@media (max-width: 768px) {
+    .blogPage__hero {
+        padding: 60px 20px;
+    }
+}

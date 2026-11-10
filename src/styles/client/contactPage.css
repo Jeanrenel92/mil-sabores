@@ -1,0 +1,22 @@
+.contactPage {
+    padding: 70px 0;
+}
+
+.contactPage__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .contactPage {
+        padding: 50px 0;
+    }
+
+    .contactPage__grid {
+        grid-template-columns: 1fr;
+    }
+}
