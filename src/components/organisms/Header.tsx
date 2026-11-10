@@ -15,6 +15,7 @@ interface HeaderProps {
   links: HeaderLink[]
   logoHref?: string
   actions?: ReactNode
+  accountEmail?: string | null
 }
 
 function Header({
@@ -23,11 +24,17 @@ function Header({
   links,
   logoHref = '/',
   actions,
+  accountEmail,
 }: HeaderProps) {
   return (
     <header className="header">
       <div className="contenedor header__inner">
-        <Logo src={logoSrc} text={logoText} href={logoHref} />
+        <div className="header__brand">
+          <Logo src={logoSrc} text={logoText} href={logoHref} />
+          {accountEmail && (
+            <span className="header__accountEmail">{accountEmail}</span>
+          )}
+        </div>
 
         <nav className="header__nav" aria-label="Principal">
           <ul className="header__menu">
