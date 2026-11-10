@@ -4,11 +4,10 @@ import '../../styles/organisms/blogGrid.css'
 
 interface BlogGridProps {
   posts: BlogPost[]
-  onRead: (id: string) => void
   readLabel?: string
 }
 
-function BlogGrid({ posts, onRead, readLabel }: BlogGridProps) {
+function BlogGrid({ posts, readLabel }: BlogGridProps) {
   return (
     <div className="blogGrid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       {posts.map((post) => (
@@ -20,8 +19,8 @@ function BlogGrid({ posts, onRead, readLabel }: BlogGridProps) {
           category={post.category}
           title={post.title}
           excerpt={post.excerpt}
+          to={`/blog/${post.id}`}
           readLabel={readLabel}
-          onRead={() => onRead(post.id)}
         />
       ))}
     </div>

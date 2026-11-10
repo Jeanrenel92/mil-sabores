@@ -2,13 +2,26 @@
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import BlogPage from '../src/pages/client/BlogPage'
+import BlogStoryPage from '../src/pages/client/BlogStoryPage'
 
 afterEach(cleanup)
 
+function renderBlog(initialEntry = '/blog') {
+  return render(
+    <MemoryRouter initialEntries={[initialEntry]}>
+      <Routes>
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:storyId" element={<BlogStoryPage />} />
+      </Routes>
+    </MemoryRouter>,
+  )
+}
+
 describe('Blog', () => {
   it('filtra las historias por texto', () => {
-    render(<BlogPage />)
+    renderBlog()
 
     fireEvent.change(screen.getByLabelText('Buscar historias'), {
       target: { value: 'cocina' },
@@ -23,7 +36,7 @@ describe('Blog', () => {
   })
 
   it('filtra las historias por categoría', () => {
-    render(<BlogPage />)
+    renderBlog()
 
     fireEvent.change(screen.getByLabelText('Categoría'), {
       target: { value: 'NUESTRO EQUIPO' },
@@ -37,20 +50,37 @@ describe('Blog', () => {
     ).toBeNull()
   })
 
-  it('abre una historia y la cierra con Escape', () => {
-    render(<BlogPage />)
+  it('abre una historia desde cualquier parte de la tarjeta', () => {
+    renderBlog()
 
-    fireEvent.click(screen.getAllByRole('button', { name: 'Leer más →' })[0])
+    fireEvent.click(
+      screen.getByRole('heading', { name: 'De una pequeña idea a 1000 Sabores' }),
+    )
     expect(
-      screen.getByRole('dialog', { name: 'De una pequeña idea a 1000 Sabores' }),
+      screen.getByRole('heading', { name: 'De una pequeña idea a 1000 Sabores' }),
     ).toBeTruthy()
+    expect(screen.getByText('Todo comenzó con una pequeña idea y una gran pasión por la pastelería.')).toBeTruthy()
+    expect(screen.getByRole('link', { name: '← Volver al blog' })).toBeTruthy()
+  })
 
-    fireEvent.keyDown(document, { key: 'Escape' })
-    expect(screen.queryByRole('dialog')).toBeNull()
+  it('muestra la historia destacada con su página dinámica', () => {
+    renderBlog('/blog/destacada')
+
+    expect(
+      screen.getByRole('heading', { name: 'El arte detrás de una torta perfecta' }),
+    ).toBeTruthy()
+    expect(screen.getByText('Ese es el verdadero arte detrás de una torta perfecta.')).toBeTruthy()
+  })
+
+  it('muestra un enlace de regreso para historias inexistentes', () => {
+    renderBlog('/blog/no-existe')
+
+    expect(screen.getByRole('heading', { name: 'Historia no encontrada' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: '← Volver al blog' })).toBeTruthy()
   })
 
   it('muestra un mensaje cuando no hay historias para los filtros', () => {
-    render(<BlogPage />)
+    renderBlog()
 
     fireEvent.change(screen.getByLabelText('Buscar historias'), {
       target: { value: 'sabor inexistente' },
