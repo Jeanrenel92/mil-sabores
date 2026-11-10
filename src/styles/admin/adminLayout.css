@@ -1,0 +1,136 @@
+.adminDashboard {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 28px 32px 48px;
+    background: var(--crema);
+}
+
+.adminDashboard__sidebar {
+    position: sticky;
+    top: 114px;
+    flex: 0 0 228px;
+    padding: 18px 12px;
+    border: 1px solid var(--borde-suave);
+    border-radius: var(--radio-lg);
+    background: var(--blanco);
+    box-shadow: var(--sombra-card);
+}
+
+.adminDashboard__heading {
+    padding: 0 10px 12px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.adminDashboard__eyebrow {
+    color: var(--chocolate);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.adminDashboard__nav {
+    display: grid;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.adminDashboard__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 10px;
+    border-radius: var(--radio-sm);
+    color: var(--texto);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.adminDashboard__link:hover {
+    background: #fff8f1;
+}
+
+.adminDashboard__link--active {
+    background: #fff1f2;
+    color: var(--chocolate-oscuro);
+}
+
+.adminDashboard__linkIcon {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    color: var(--placeholder);
+}
+
+.adminDashboard__linkIcon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.adminDashboard__link--active .adminDashboard__linkIcon {
+    color: var(--chocolate);
+}
+
+.adminDashboard__main {
+    flex: 1;
+    min-width: 0;
+}
+
+.adminDashboard__preview {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio-pill);
+    background: var(--blanco);
+    color: var(--chocolate);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.adminDashboard__preview:hover {
+    border-color: var(--rosa);
+    background: #fff8f1;
+}
+
+@media (max-width: 760px) {
+    .adminDashboard {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 5% 36px;
+    }
+
+    .adminDashboard__sidebar {
+        flex: none;
+        align-self: stretch;
+        position: static;
+        padding: 12px;
+    }
+
+    .adminDashboard__heading {
+        padding: 0 6px 9px;
+    }
+
+    .adminDashboard__nav {
+        display: flex;
+        margin-top: 6px;
+    }
+
+    .adminDashboard__link {
+        flex: 0 0 auto;
+        min-height: 40px;
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+}
