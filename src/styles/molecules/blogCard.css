@@ -11,6 +11,18 @@
     box-shadow: 0 10px 25px rgba(93, 64, 55, 0.15);
 }
 
+.blogCard__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.blogCard__link:focus-visible {
+    outline: 3px solid var(--chocolate);
+    outline-offset: -3px;
+}
+
 .blogCard__media {
     height: 220px;
     background: var(--crema);
@@ -38,6 +50,11 @@
 }
 
 .blogCard__read:hover {
+    text-decoration: underline;
+}
+
+.blogCard__link:hover .blogCard__read,
+.blogCard__link:focus-visible .blogCard__read {
     text-decoration: underline;
 }
 

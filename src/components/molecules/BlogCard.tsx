@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Image from '../atoms/Image'
 import Tag from '../atoms/Tag'
 import Title from '../atoms/Title'
@@ -9,7 +10,7 @@ interface BlogCardProps {
   category: string
   title: string
   excerpt: string
-  onRead: () => void
+  to: string
   readLabel?: string
   className?: string
 }
@@ -20,7 +21,7 @@ function BlogCard({
   category,
   title,
   excerpt,
-  onRead,
+  to,
   readLabel = 'Leer más →',
   className = '',
 }: BlogCardProps) {
@@ -28,18 +29,18 @@ function BlogCard({
 
   return (
     <article className={classes}>
-      <div className="blogCard__media">
-        <Image src={image} alt={imageAlt} fit="contain" />
-      </div>
+      <Link to={to} className="blogCard__link">
+        <div className="blogCard__media">
+          <Image src={image} alt={imageAlt} fit="contain" />
+        </div>
 
-      <div className="blogCard__content">
-        <Tag>{category}</Tag>
-        <Title level={3}>{title}</Title>
-        <p className="blogCard__excerpt">{excerpt}</p>
-        <button type="button" className="blogCard__read" onClick={onRead}>
-          {readLabel}
-        </button>
-      </div>
+        <div className="blogCard__content">
+          <Tag>{category}</Tag>
+          <Title level={3}>{title}</Title>
+          <p className="blogCard__excerpt">{excerpt}</p>
+          <span className="blogCard__read">{readLabel}</span>
+        </div>
+      </Link>
     </article>
   )
 }
