@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import AboutPage from '../pages/client/AboutPage'
 import BlogPage from '../pages/client/BlogPage'
 import ComingSoon from '../pages/client/ComingSoon'
 import ContactPage from '../pages/client/ContactPage'
@@ -12,7 +13,7 @@ function ClientRoutes() {
     <Routes>
       <Route element={<ClientLayout />}>
         <Route index element={<Home />} />
-        <Route path="nosotros" element={<ComingSoon title="Sobre nosotros" />} />
+        <Route path="nosotros" element={<AboutPage />} />
         <Route path="productos" element={<ComingSoon title="Productos" />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="contacto" element={<ContactPage />} />

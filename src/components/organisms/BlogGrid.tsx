@@ -10,10 +10,11 @@ interface BlogGridProps {
 
 function BlogGrid({ posts, onRead, readLabel }: BlogGridProps) {
   return (
-    <div className="blogGrid">
+    <div className="blogGrid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       {posts.map((post) => (
         <BlogCard
           key={post.id}
+          className="col"
           image={post.image}
           imageAlt={post.imageAlt}
           category={post.category}

@@ -1,0 +1,264 @@
+.adminOverview {
+    padding: 10px 0;
+}
+
+.adminOverview__header {
+    max-width: none;
+    margin: 0 0 24px;
+    text-align: left;
+}
+
+.adminOverview__header .title {
+    margin: 6px 0;
+    text-align: left;
+}
+
+.adminOverview__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.adminOverview__metric,
+.adminOverview__card {
+    border: 1px solid var(--borde-suave);
+    border-radius: var(--radio-md);
+    background: var(--blanco);
+    box-shadow: var(--sombra-card);
+}
+
+.adminOverview__metric {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 12px;
+    min-height: 112px;
+    padding: 18px 20px;
+}
+
+.adminOverview__metricLabel {
+    color: var(--texto);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.adminOverview__metricValue {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    color: var(--chocolate);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.adminOverview__metricValue--price {
+    font-size: 1.3rem;
+}
+
+.adminOverview__metricNote {
+    color: var(--placeholder);
+    font-size: 0.8rem;
+}
+
+.adminOverview__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+    align-items: start;
+    gap: 20px;
+}
+
+.adminOverview__card {
+    padding: 20px;
+}
+
+.adminOverview__cardHeading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.adminOverview__cardHeading h2 {
+    margin: 0 0 5px;
+    color: var(--texto);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.adminOverview__cardHeading p {
+    color: var(--placeholder);
+    font-size: 0.84rem;
+}
+
+.adminOverview__cardBadge {
+    padding: 6px 9px;
+    border-radius: var(--radio-pill);
+    background: #fff1f2;
+    color: var(--chocolate);
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.adminOverview__categoryList {
+    display: grid;
+    gap: 15px;
+    list-style: none;
+}
+
+.adminOverview__categoryHeading {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+    color: var(--texto);
+    font-size: 0.84rem;
+}
+
+.adminOverview__categoryHeading strong {
+    color: var(--chocolate);
+}
+
+.adminOverview__progress {
+    display: block;
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--radio-pill);
+    background: var(--crema);
+    appearance: none;
+}
+
+.adminOverview__progress::-webkit-progress-bar {
+    border-radius: var(--radio-pill);
+    background: var(--crema);
+}
+
+.adminOverview__progress::-webkit-progress-value {
+    border-radius: var(--radio-pill);
+    background: var(--rosa);
+}
+
+.adminOverview__progress::-moz-progress-bar {
+    border-radius: var(--radio-pill);
+    background: var(--rosa);
+}
+
+.adminOverview__shortcuts {
+    display: grid;
+    gap: 10px;
+}
+
+.adminOverview__shortcuts .adminOverview__cardHeading {
+    margin-bottom: 4px;
+}
+
+.adminOverview__shortcut {
+    display: grid;
+    grid-template-columns: 38px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    min-height: 68px;
+    padding: 10px;
+    border: 1px solid var(--borde-suave);
+    border-radius: var(--radio-sm);
+    color: var(--texto);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.adminOverview__shortcut:hover {
+    border-color: var(--rosa);
+    background: #fff8f1;
+}
+
+.adminOverview__shortcutIcon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 10px;
+    background: #fff1f2;
+    color: var(--chocolate);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.adminOverview__shortcut strong,
+.adminOverview__shortcut small {
+    display: block;
+}
+
+.adminOverview__shortcut strong {
+    font-size: 0.84rem;
+}
+
+.adminOverview__shortcut small {
+    margin-top: 3px;
+    color: var(--placeholder);
+    font-size: 0.75rem;
+}
+
+.adminOverview__shortcutArrow {
+    color: var(--chocolate);
+}
+
+.adminOverview__note {
+    margin-top: 6px;
+    padding: 14px;
+    border-radius: var(--radio-sm);
+    background: var(--crema);
+}
+
+.adminOverview__note strong {
+    color: var(--chocolate);
+    font-size: 0.82rem;
+}
+
+.adminOverview__note p {
+    margin-top: 5px;
+    color: var(--texto);
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+@media (max-width: 1050px) {
+    .adminOverview__content {
+        grid-template-columns: 1fr;
+    }
+
+    .adminOverview__shortcuts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .adminOverview__shortcuts .adminOverview__cardHeading,
+    .adminOverview__note {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 760px) {
+    .adminOverview {
+        padding: 0;
+    }
+
+    .adminOverview__metrics {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .adminOverview__metric {
+        min-height: 86px;
+    }
+
+    .adminOverview__shortcuts {
+        grid-template-columns: 1fr;
+    }
+
+    .adminOverview__shortcuts .adminOverview__cardHeading,
+    .adminOverview__note {
+        grid-column: auto;
+    }
+}
