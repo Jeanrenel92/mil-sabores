@@ -15,6 +15,51 @@ beforeEach(() => {
 })
 
 describe('Administración del catálogo', () => {
+  it('muestra diez productos por página y permite avanzar y retroceder', () => {
+    const products = getProducts()
+    const additionalProducts = Array.from({ length: 14 }, (_, index) => ({
+      ...products[0],
+      codigo: `EX${String(index + 1).padStart(3, '0')}`,
+      nombre: `Producto extra ${index + 1}`,
+    }))
+    localStorage.setItem(
+      'milSabores_productos',
+      JSON.stringify([...products, ...additionalProducts]),
+    )
+
+    render(<CatalogAdminPage />)
+
+    expect(screen.getAllByRole('row')).toHaveLength(11)
+    expect(screen.getByText('Mostrando 1-10 de 30 productos')).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Página anterior' })).toHaveProperty(
+      'disabled',
+      true,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'Página siguiente' }))
+
+    expect(screen.getAllByRole('row')).toHaveLength(11)
+    expect(screen.getByText('Mostrando 11-20 de 30 productos')).toBeTruthy()
+    expect(screen.getByText('Producto extra 1')).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Página anterior' }))
+    expect(screen.getByText('Mostrando 1-10 de 30 productos')).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Página siguiente' }))
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar producto...' }), {
+      target: { value: 'Mousse' },
+    })
+
+    expect(screen.getByText('Mousse de Chocolate')).toBeTruthy()
+    expect(screen.getByText('Mostrando 1-1 de 1 productos')).toBeTruthy()
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar producto...' }), {
+      target: { value: '' },
+    })
+    expect(screen.getByText('Mostrando 1-10 de 30 productos')).toBeTruthy()
+    expect(screen.getByText('Torta Cuadrada de Chocolate')).toBeTruthy()
+  })
+
   it('filtra el catálogo por texto', () => {
     render(<CatalogAdminPage />)
 
