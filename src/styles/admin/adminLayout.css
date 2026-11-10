@@ -8,8 +8,13 @@
 }
 
 .adminDashboard__sidebar {
+    position: sticky;
+    top: 90px;
+    align-self: flex-start;
     flex: 0 0 240px;
+    height: calc(100vh - 90px);
     padding: 28px 16px;
+    overflow-y: auto;
     border-right: 1px solid var(--borde-suave);
     background: var(--blanco);
 }
@@ -86,9 +91,11 @@
     }
 
     .adminDashboard__sidebar {
-        flex: none;
-        align-self: stretch;
         position: static;
+        flex: none;
+        height: auto;
+        align-self: stretch;
+        overflow: visible;
         padding: 12px;
         border: 1px solid var(--borde-suave);
         border-radius: var(--radio-md);
@@ -112,5 +119,12 @@
         min-height: 40px;
         padding: 6px 8px;
         white-space: nowrap;
+    }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+    .adminDashboard__sidebar {
+        top: 120px;
+        height: calc(100vh - 120px);
     }
 }

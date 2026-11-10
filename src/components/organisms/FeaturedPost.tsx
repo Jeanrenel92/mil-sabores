@@ -1,4 +1,4 @@
-import Button from '../atoms/Button'
+import { Link } from 'react-router-dom'
 import Image from '../atoms/Image'
 import Tag from '../atoms/Tag'
 import Title from '../atoms/Title'
@@ -10,7 +10,7 @@ interface FeaturedPostProps {
   category: string
   title: string
   excerpt: string
-  onRead: () => void
+  to: string
   readLabel?: string
 }
 
@@ -20,7 +20,7 @@ function FeaturedPost({
   category,
   title,
   excerpt,
-  onRead,
+  to,
   readLabel = 'Leer historia',
 }: FeaturedPostProps) {
   return (
@@ -34,7 +34,9 @@ function FeaturedPost({
           <Tag>{category}</Tag>
           <Title level={2}>{title}</Title>
           <p className="featuredPost__excerpt">{excerpt}</p>
-          <Button onClick={onRead}>{readLabel}</Button>
+          <Link to={to} className="button button--primary featuredPost__link">
+            {readLabel}
+          </Link>
         </div>
       </div>
     </section>

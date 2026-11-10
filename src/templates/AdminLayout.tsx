@@ -1,6 +1,10 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import Header from '../components/organisms/Header'
-import { ADMIN_BASE_PATH, adminHeaderLinks } from '../data/adminConfig'
+import {
+  ADMIN_BASE_PATH,
+  ADMIN_EMAIL,
+  adminHeaderLinks,
+} from '../data/adminConfig'
 import '../styles/admin/adminLayout.css'
 
 function AdminLayout() {
@@ -10,6 +14,7 @@ function AdminLayout() {
         logoText="Mil Sabores · Admin"
         logoHref={ADMIN_BASE_PATH}
         links={[]}
+        accountEmail={ADMIN_EMAIL}
       />
 
       <div className="adminDashboard">

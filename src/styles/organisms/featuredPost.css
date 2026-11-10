@@ -29,6 +29,10 @@
     line-height: 1.7;
 }
 
+.featuredPost__link {
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .featuredPost__inner {
         grid-template-columns: 1fr;
