@@ -19,6 +19,22 @@ interface HeaderProps {
   accountEmail?: string | null
 }
 
+function CartNavLink({ href }: { href: string }) {
+  const { itemCount } = useCart()
+
+  return (
+    <NavLink to={href} className="header__cartLink">
+      <i className="bi bi-cart3" aria-hidden="true" />
+      <span className="visually-hidden">
+        Carrito, {itemCount} producto{itemCount === 1 ? '' : 's'}
+      </span>
+      <span className="header__cartCount" aria-hidden="true">
+        {itemCount}
+      </span>
+    </NavLink>
+  )
+}
+
 function Header({
   logoSrc = images.logo.logo_1000,
   logoText,
@@ -27,8 +43,6 @@ function Header({
   actions,
   accountEmail,
 }: HeaderProps) {
-  const { itemCount } = useCart()
-
   return (
     <header className="header">
       <div className="contenedor header__inner">
@@ -43,24 +57,11 @@ function Header({
           <ul className="header__menu">
             {links.map((link) => (
               <li key={link.href}>
-                <NavLink
-                  to={link.href}
-                  className={link.href === '/carrito' ? 'header__cartLink' : ''}
-                >
-                  {link.href === '/carrito' ? (
-                    <>
-                      <i className="bi bi-cart3" aria-hidden="true" />
-                      <span className="visually-hidden">
-                        Carrito, {itemCount} producto{itemCount === 1 ? '' : 's'}
-                      </span>
-                      <span className="header__cartCount" aria-hidden="true">
-                        {itemCount}
-                      </span>
-                    </>
-                  ) : (
-                    link.label
-                  )}
-                </NavLink>
+                {link.href === '/carrito' ? (
+                  <CartNavLink href={link.href} />
+                ) : (
+                  <NavLink to={link.href}>{link.label}</NavLink>
+                )}
               </li>
             ))}
           </ul>
