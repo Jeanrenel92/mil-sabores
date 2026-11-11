@@ -19,9 +19,18 @@ export const footerColumns: FooterColumn[] = [
   {
     title: 'Síguenos en nuestras redes',
     links: [
-      { label: 'Instagram', href: '#' },
-      { label: 'Facebook', href: '#' },
-      { label: 'TikTok', href: '#' },
+      {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/explore/search/keyword/?q=Mil%20Sabores',
+      },
+      {
+        label: 'Facebook',
+        href: 'https://www.facebook.com/search/top?q=Mil%20Sabores',
+      },
+      {
+        label: 'TikTok',
+        href: 'https://www.tiktok.com/search?q=Mil%20Sabores',
+      },
     ],
   },
   {

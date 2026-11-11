@@ -62,7 +62,12 @@ function Footer({
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="footer__link">
+                      <a
+                        href={link.href}
+                        className="footer__link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {link.label}
                       </a>
                     )}
