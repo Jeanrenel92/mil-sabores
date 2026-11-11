@@ -1,0 +1,39 @@
+.checkoutConfirmation__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(36, 24, 19, 0.55);
+}
+
+.checkoutConfirmation {
+  display: grid;
+  justify-items: center;
+  width: min(440px, 100%);
+  gap: 14px;
+  padding: 36px 28px;
+  border-radius: var(--radio-lg);
+  background: var(--blanco);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.checkoutConfirmation > i {
+  color: var(--exito);
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.checkoutConfirmation h2 {
+  margin: 0;
+  color: var(--chocolate);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.checkoutConfirmation p {
+  margin: 0 0 6px;
+  color: var(--texto);
+}

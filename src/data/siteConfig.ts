@@ -4,9 +4,10 @@ import type { HeaderLink } from '../components/organisms/Header'
 export const clientHeaderLinks: HeaderLink[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Sobre nosotros', href: '/nosotros' },
-  { label: 'Productos', href: '/productos' },
+  { label: 'Productos', href: '/catalogo' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contáctanos', href: '/contacto' },
+  { label: 'Carrito', href: '/carrito' },
 ]
 
 export const footerContactLines = [
@@ -31,7 +32,7 @@ export const footerColumns: FooterColumn[] = [
     title: 'Enlaces rápidos',
     links: [
       { label: 'Inicio', href: '/' },
-      { label: 'Productos', href: '/productos' },
+      { label: 'Productos', href: '/catalogo' },
       { label: 'Sobre nosotros', href: '/nosotros' },
     ],
   },

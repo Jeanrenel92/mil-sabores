@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { images } from '../../assets/image'
 import Logo from '../atoms/Logo'
 import NavLink from '../atoms/NavLink'
+import { useCart } from '../../context/useCart'
 import '../../styles/organisms/header.css'
 
 export interface HeaderLink {
@@ -26,6 +27,8 @@ function Header({
   actions,
   accountEmail,
 }: HeaderProps) {
+  const { itemCount } = useCart()
+
   return (
     <header className="header">
       <div className="contenedor header__inner">
@@ -40,8 +43,23 @@ function Header({
           <ul className="header__menu">
             {links.map((link) => (
               <li key={link.href}>
-                <NavLink to={link.href}>
-                  {link.label}
+                <NavLink
+                  to={link.href}
+                  className={link.href === '/carrito' ? 'header__cartLink' : ''}
+                >
+                  {link.href === '/carrito' ? (
+                    <>
+                      <i className="bi bi-cart3" aria-hidden="true" />
+                      <span className="visually-hidden">
+                        Carrito, {itemCount} producto{itemCount === 1 ? '' : 's'}
+                      </span>
+                      <span className="header__cartCount" aria-hidden="true">
+                        {itemCount}
+                      </span>
+                    </>
+                  ) : (
+                    link.label
+                  )}
                 </NavLink>
               </li>
             ))}

@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '../../components/atoms/Button';
 import { HeroHome } from '../../components/organisms/HeroHome';
 import { PromoVideo } from '../../components/organisms/PromoVideo';
 import { Benefits } from '../../components/organisms/Benefits';
@@ -7,6 +8,7 @@ import { ProductCard } from '../../components/molecules/ProductCard';
 import { initialProducts } from '../../data/products'; 
 
 const Home = () => {
+    const navigate = useNavigate();
     const productosDestacados = initialProducts.slice(0, 3);
 
     const manejarAgregarCarrito = (codigo: string) => {
@@ -15,11 +17,14 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            {/* Botones de Login y Registro que tenías al principio */}
             <section>
-                <div className="container text-end my-3">
-                    <Link to="/login" className="btn-login me-3 text-decoration-none text-dark fw-bold">Iniciar sesión</Link>
-                    <Link to="/registro" className="btn-registro text-decoration-none text-danger fw-bold">Registrar usuario</Link>
+                <div className="container d-flex justify-content-end my-3">
+                    <div className="header__actions">
+                        <Button variant="pink" onClick={() => navigate('/login')}>
+                            Iniciar sesión
+                        </Button>
+                        <Button onClick={() => navigate('/registro')}>Registrarse</Button>
+                    </div>
                 </div>
             </section>
 
@@ -27,7 +32,6 @@ const Home = () => {
             <PromoVideo />
             <Benefits />
             
-            {/* Sección de Productos Destacados */}
             <section id="productos-destacados" className="container my-5 pt-4">
                 <div className="text-center mb-5">
                     <h2 className="fw-bold">Nuestros Productos Destacados</h2>

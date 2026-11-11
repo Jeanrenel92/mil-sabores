@@ -48,6 +48,27 @@
     align-items: center;
 }
 
+.header__cartLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.25rem;
+}
+
+.header__cartCount {
+    display: inline-grid;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--chocolate);
+    color: var(--blanco);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
 .header__actions {
     display: flex;
     align-items: center;
