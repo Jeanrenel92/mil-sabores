@@ -32,8 +32,9 @@
 
 .header__nav {
     display: flex;
-    align-items: center;
-    gap: 18px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .header__menu {
@@ -72,6 +73,7 @@
 .header__actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 10px;
 }
 
@@ -88,7 +90,12 @@
     }
 
     .header__nav {
+        align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header__actions {
         justify-content: center;
     }
 }
