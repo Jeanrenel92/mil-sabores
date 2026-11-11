@@ -1,12 +1,19 @@
 // @vitest-environment jsdom
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import BlogPage from '../src/pages/client/BlogPage'
 import BlogStoryPage from '../src/pages/client/BlogStoryPage'
 
-afterEach(cleanup)
+afterEach(() => {
+  cleanup()
+  vi.restoreAllMocks()
+})
+
+beforeEach(() => {
+  vi.spyOn(window, 'scrollTo').mockImplementation(() => {})
+})
 
 function renderBlog(initialEntry = '/blog') {
   return render(
@@ -61,6 +68,7 @@ describe('Blog', () => {
     ).toBeTruthy()
     expect(screen.getByText('Todo comenzó con una pequeña idea y una gran pasión por la pastelería.')).toBeTruthy()
     expect(screen.getByRole('link', { name: '← Volver al blog' })).toBeTruthy()
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 0)
   })
 
   it('muestra la historia destacada con su página dinámica', () => {

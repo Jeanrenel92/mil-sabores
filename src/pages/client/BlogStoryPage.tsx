@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Image from '../../components/atoms/Image'
 import Tag from '../../components/atoms/Tag'
@@ -8,6 +9,10 @@ import '../../styles/client/blogStoryPage.css'
 function BlogStoryPage() {
   const { storyId } = useParams()
   const story = blogStories.find((item) => item.id === storyId)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [storyId])
 
   if (!story) {
     return (
